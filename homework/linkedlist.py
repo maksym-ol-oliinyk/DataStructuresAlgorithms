@@ -86,12 +86,19 @@ class LinkedList:
     def removeByValue(self, data):
         current = self.head
 
-        while current.next:
-            if current.next == data:
-                current.next = current.next.next
+        if current.data == data:
+            if current.next:
+                self.head = current.next
+                return
+            else:
+                self.head = None
                 return
 
-
+        while current.next:
+            if current.next.data == data:
+                current.next = current.next.next
+                return
+            current = current.next
 
     def print(self):
         current = self.head
@@ -100,12 +107,10 @@ class LinkedList:
             print(f"{current.data}", end=" -> ")
             current = current.next
 
-
-
 def main():
     lilist = LinkedList()
     lilist.fromList([1,2,3,4,5])
-    lilist.insertAt(4, 55)
+    lilist.removeByValue(3)
     lilist.print()
 
 if __name__ == "__main__":
