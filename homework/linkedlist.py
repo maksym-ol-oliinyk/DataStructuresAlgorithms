@@ -73,6 +73,24 @@ class LinkedList:
 
             current = current.next
             currentIdx += 1
+    
+    def insertAfterValue(self, dataAfter, dataToInsert):
+        current = self.head
+
+        while current:
+            if current.data == dataAfter:
+                current.next = Node(dataToInsert, current.next)
+                return
+            current = current.next
+
+    def removeByValue(self, data):
+        current = self.head
+
+        while current.next:
+            if current.next == data:
+                current.next = current.next.next
+                return
+
 
 
     def print(self):
