@@ -74,7 +74,6 @@ class LinkedList:
             current = current.next
             currentIdx += 1
 
-
     def print(self):
         current = self.head
 
